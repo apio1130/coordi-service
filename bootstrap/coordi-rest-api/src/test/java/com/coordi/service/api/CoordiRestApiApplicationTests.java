@@ -1,10 +1,10 @@
-package com.coordi.service;
+package com.coordi.service.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CoordiServiceApplicationTests {
+class CoordiRestApiApplicationTests {
 
 	@Test
 	void contextLoads() {

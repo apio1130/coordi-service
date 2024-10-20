@@ -1,1 +1,6 @@
 rootProject.name = 'coordi-service'
+
+include 'bootstrap:coordi-rest-api'
+include 'application:coordi-core'
+include 'domain:coordi-product'
+include 'infra:coordi-h2-repository'

@@ -1,13 +1,13 @@
-package com.coordi.service;
+package com.coordi.service.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CoordiServiceApplication {
+public class CoordiRestApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CoordiServiceApplication.class, args);
+		SpringApplication.run(CoordiRestApiApplication.class, args);
 	}
 
 }
