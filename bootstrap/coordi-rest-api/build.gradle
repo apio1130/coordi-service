@@ -2,4 +2,10 @@ bootJar.enabled = true
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    implementation project(":application:coordi-core")
+    implementation project(":domain:coordi-product")
+    implementation project(":infra:coordi-storage-h2")
 }

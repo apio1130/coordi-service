@@ -1,4 +1,42 @@
 spring:
   application:
     name: coordi-rest-api
+  config:
+    import: db-config.yml
+  profiles:
+    default: local
 
+server:
+  servlet:
+    context-path: /api
+  shutdown: graceful
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, beans, configprops
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
