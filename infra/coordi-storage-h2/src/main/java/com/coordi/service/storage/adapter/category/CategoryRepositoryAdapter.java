@@ -1,5 +1,6 @@
 package com.coordi.service.storage.adapter.category;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
@@ -44,6 +45,16 @@ public class CategoryRepositoryAdapter implements CategoryRepository {
 	@Override
 	public Optional<Category> findById(Long id) {
 		return jpaRepository.findById(id).map(CategoryDataConverter::toModel);
+	}
+
+	@Override
+	public Optional<Category> findByName(String name) {
+		return jpaRepository.findByName(name).map(CategoryDataConverter::toModel);
+	}
+
+	@Override
+	public List<Category> findAll() {
+		return jpaRepository.findAll().stream().map(CategoryDataConverter::toModel).toList();
 	}
 
 	@Override

@@ -15,9 +15,13 @@ spring:
         format_sql: true
     hibernate:
       ddl-auto: create-drop
+    defer-datasource-initialization: true
   h2:
     console:
       enabled: true
+#  sql:
+#    init:
+#      mode: always
 
 infra:
   storage:
@@ -66,6 +70,7 @@ spring:
         format_sql: true
     hibernate:
       ddl-auto: create-drop
+    defer-datasource-initialization: true
   h2:
     console:
       enabled: true

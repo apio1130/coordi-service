@@ -1,5 +1,6 @@
 package com.coordi.service.storage.adapter.product;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
@@ -36,6 +37,11 @@ public class ProductRepositoryAdapter implements ProductRepository {
 	@Override
 	public Optional<Product> findById(Long id) {
 		return jpaRepository.findById(id).map(ProductDataConverter::toModel);
+	}
+
+	@Override
+	public List<Product> findAllByBrandId(Long brandId) {
+		return jpaRepository.findAllByBrandId(brandId).stream().map(ProductDataConverter::toModel).toList();
 	}
 
 	@Override

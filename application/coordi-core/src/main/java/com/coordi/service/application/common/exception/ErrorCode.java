@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public enum ErrorCode {
 	DUPLICATE_KEY(400, "%s 값이 중복입니다."),
-	NOT_FOUND_DATA(400, "%s 값이 존재하지 않습니다."),
+	NOT_FOUND_DATA(400, "%s 정보가 존재하지 않습니다."),
 	;
 
 	private final int statusCode;
