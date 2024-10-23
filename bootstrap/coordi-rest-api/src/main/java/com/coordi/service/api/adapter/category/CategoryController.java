@@ -40,10 +40,10 @@ public class CategoryController {
 	}
 
 	@PutMapping("/{categoryId}")
-	public CategoryResponse modifyCategory(@PathVariable Long categoryId,
-										   @RequestBody CategoryRequest categoryRequest) {
+	public ResponseEntity<CategoryResponse> modifyCategory(@PathVariable Long categoryId,
+										   				   @RequestBody CategoryRequest categoryRequest) {
 		Category category = categoryService.update(CategoryCommandConverter.toUpdate(categoryRequest, categoryId));
-		return CategoryResponse.from(category);
+		return ResponseEntity.ok(CategoryResponse.from(category));
 	}
 
 	@DeleteMapping("/{categoryId}")

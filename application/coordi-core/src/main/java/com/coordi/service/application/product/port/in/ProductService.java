@@ -24,23 +24,23 @@ class ProductService implements ProductUseCase {
 
 	@Override
 	public Product create(CreateProductCommand createCommand) {
-		brandRepository.findById(createCommand.getBrandId()).ifPresent(brand -> {
+		if (brandRepository.findById(createCommand.getBrandId()).isEmpty()) {
 			throw ErrorCode.NOT_FOUND_DATA.toException("브랜드");
-		});
-		categoryRepository.findById(createCommand.getCategoryId()).ifPresent(category -> {
+		}
+		if (categoryRepository.findById(createCommand.getCategoryId()).isEmpty()) {
 			throw ErrorCode.NOT_FOUND_DATA.toException("카테고리");
-		});
+		}
 		return productRepository.create(createCommand.toModel());
 	}
 
 	@Override
 	public Product update(UpdateProductCommand updateCommand) {
-		brandRepository.findById(updateCommand.getBrandId()).ifPresent(brand -> {
+		if (brandRepository.findById(updateCommand.getBrandId()).isEmpty()) {
 			throw ErrorCode.NOT_FOUND_DATA.toException("브랜드");
-		});
-		categoryRepository.findById(updateCommand.getCategoryId()).ifPresent(category -> {
+		}
+		if (categoryRepository.findById(updateCommand.getCategoryId()).isEmpty()) {
 			throw ErrorCode.NOT_FOUND_DATA.toException("카테고리");
-		});
+		}
 		return productRepository.update(updateCommand.toModel());
 	}
 

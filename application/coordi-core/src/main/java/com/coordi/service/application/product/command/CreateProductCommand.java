@@ -2,7 +2,6 @@ package com.coordi.service.application.product.command;
 
 import java.math.BigInteger;
 
-import com.coordi.service.domain.category.Category;
 import com.coordi.service.domain.product.Product;
 
 import lombok.Builder;
