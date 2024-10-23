@@ -25,13 +25,31 @@ infra:
     jdbc-url: jdbc:h2:mem:localdb;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE;
     username: admin
     password:
-#    password: admin
 
 ---
 spring:
   config:
     activate:
       on-profile: dev
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+
+infra:
+  storage:
+    driver-class-name: org.h2.Driver
+    jdbc-url: jdbc:h2:mem:devdb;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE;
+    username: admin
+    password: admin
 
 
 ---
@@ -55,14 +73,32 @@ spring:
 infra:
   storage:
     driver-class-name: org.h2.Driver
-    jdbc-url: jdbc:h2:mem:localdb;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE;
+    jdbc-url: jdbc:h2:mem:testdb;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE;
     username: admin
-    password:
-#    password: admin
+    password: admin
 
 ---
 spring:
   config:
     activate:
       on-profile: prod
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+
+infra:
+  storage:
+    driver-class-name: org.h2.Driver
+    jdbc-url: jdbc:h2:mem:proddb;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE;
+    username: admin
+    password: admin
 
